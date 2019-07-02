@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Quiz Game</title>
+        <link rel='stylesheet' href='./css/style.css'/>
+        <script type='text/javascript' src='./js/app.js'></script>
+    </head>
+    <body>
+        <div id='container'>
+            <div id='middle'>
+                <div id='innerContainer'>
+                    <div id='content'>
+                        <div class='header'>
+                            <div class='header_row'>
+                                <div id='title'>Quiz Game </div>
+                                <div id='time'>hh:mm:ss</div>
+                            </div>
+                            <div class='clearfix'></div>                        
+                            <div class='headerRow'>
+                                <div class='headerLeft'>
+                                    <div id='score'></div>
+                                    <button id='undo'>Undo</button>
+                                </div>
+                                <div class='headerRight'>
+                                    <button id="startButton" state="play">Play</button>
+                                </div>
+                            </div>
+                            <div class='clearfix'></div>                        
+                        </div>
+                        <div id="gameArea">
+                            <div id="termsContainer">
+                                <div class='termWidget' unselectable="on" id='termWidget1' draggable="false" ondragstart="drag(event)" linkid='1'>
+                                    Term 1
+                                </div>
+                                <div class='termWidget' unselectable="on" id='termWidget2' draggable="false" ondragstart="drag(event)" linkid='2'>
+                                    Term 2
+                                </div>
+                                <div class='termWidget' unselectable="on" id='termWidget3' draggable="false" ondragstart="drag(event)" linkid='3'>s
+                                    Term 3
+                                </div>
+                                <div class='termWidget' unselectable="on" id='termWidget4' draggable="false" ondragstart="drag(event)" linkid='4'>
+                                    Term 4
+                                </div>
+                                <div class='termWidget' unselectable="on" id='termWidget5' draggable="false" ondragstart="drag(event)" linkid='5'>
+                                    Term 5
+                                </div></div>
+                            <div id="definitionsContainer">
+                                <div class='definitionWidget' unselectable="on" id='definitionWidget1' expectedLinkId='1' droppedLinkId='0'>
+                                    <div class='droppedTerm' unselectable="on" ondrop="drop(event)" ondragover="allowDrop(event)" id="def1">Term 1</div>
+                                    <div class='definitionText' unselectable="on" id='defWidget1'>Term 1 - Definition which can be long and needs to word wrap.</div>
+                                    <div class='clearfix_no_margin'></div>
+                                </div>
+                                <div class='definitionWidget' unselectable="on" id='definitionWidget2'expectedLinkId='2' droppedLinkId='0'>
+                                    <div class='droppedTerm' unselectable="on" ondrop="drop(event)" ondragover="allowDrop(event)">Term 2</div>
+                                    <div class='definitionText' unselectable="on" id='defWidget2'>Term 2 - Definition which can be long and needs to word wrap.</div>
+                                    <div class='clearfix_no_margin'></div>
+                                </div>
+                                <div class='definitionWidget' unselectable="on" id='definitionWidget3' expectedLinkId='3' droppedLinkId='0'>
+                                    <div class='droppedTerm' unselectable="on" ondrop="drop(event)" ondragover="allowDrop(event)">Term 3</div>
+                                    <div class='definitionText' unselectable="on" id='defWidget3'>Term 3 - Definition which can be long and needs to word wrap.</div>
+                                    <div class='clearfix_no_margin'></div>
+                                </div>
+                                <div class='definitionWidget' unselectable="on" id='definitionWidget4'expectedLinkId='4' droppedLinkId='0'>
+                                    <div class='droppedTerm' unselectable="on" ondrop="drop(event)" ondragover="allowDrop(event)">Term 4</div>
+                                    <div class='definitionText' id='defWidget4'>Term 4 - Definition which can be long and needs to word wrap.</div>
+                                    <div class='clearfix_no_margin'></div>
+                                </div>
+                                <div class='definitionWidget' unselectable="on" id='definitionWidget5' expectedLinkId='5' droppedLinkId='0'>
+                                    <div class='droppedTerm' unselectable="on" ondrop="drop(event)" ondragover="allowDrop(event)">Term 5</div>
+                                    <div class='definitionText' unselectable="on" id='defWidget5'>Term 5 - Definition which can be long and needs to word wrap.</div>
+                                    <div class='clearfix_no_margin'></div>                      
+                                </div>
+                            </div>
+                        </div>                  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var xhttp = new XMLHttpRequest();
+            //define vars to hold time values
+                    var seconds = 0;
+                    var minutes = 0;
+                    var hours = 0;
+
+                    //define vars to hold display values
+                    var displaySeconds = 0;
+                    var displayMinutes =0;
+                    var displayHours = 0;
+
+                    //var to hold setInterval() function
+                    var interval = null;
+
+                    //stopwatch status
+                    var status = "stopped"; 
+                    var correct = 0;
+                    var wrong = 0;
+                    var AnswerArr = new Array();
+                    var DefArr = new Array();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    document.getElementById("termWidget1").innerHTML = myArr[0];
+                    document.getElementById("termWidget2").innerHTML = myArr[1];
+                    document.getElementById("termWidget3").innerHTML = myArr[2];
+                    document.getElementById("termWidget4").innerHTML = myArr[3];
+                    document.getElementById("termWidget5").innerHTML = myArr[4];
+
+                }
+           } 
+            xhttp.open("GET", "quizstuff.json", true);
+            xhttp.send();
+            var yhttp = new XMLHttpRequest();
+            yhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    document.getElementById("defWidget1").innerHTML = myArr[0];
+                    document.getElementById("defWidget2").innerHTML = myArr[1];
+                    document.getElementById("defWidget3").innerHTML = myArr[2];
+                    document.getElementById("defWidget4").innerHTML = myArr[3];
+                    document.getElementById("defWidget5").innerHTML = myArr[4];
+                }
+            }
+            yhttp.open("GET", "defstuff.json", true);
+            yhttp.send();
+            document.getElementById("startButton").addEventListener("click", gameControl);
+
+
+            function gameControl() {
+                if(document.getElementById("startButton").innerHTML == "Play"){
+                     document.getElementById("startButton").innerHTML = "Stop";
+                     document.getElementById("score").innerHTML = "Score Message Center";
+                     interval = window.setInterval(stopWatch, 1000);
+                     for (var i = 0; i < 5; i++){
+                        document.getElementsByClassName("termWidget")[i].setAttribute("draggable", "true");
+                        document.getElementsByClassName("termWidget")[i].setAttribute("unselectable", "off");
+
+                        }
+                }else if(document.getElementById("startButton").innerHTML == "Stop"){
+                    document.getElementById("startButton").innerHTML = "Score";
+                    window.clearInterval(interval);
+                    for (var i = 0; i < 5; i++){
+                    document.getElementsByClassName("termWidget")[i].setAttribute("draggable", "false");
+                    document.getElementsByClassName("termWidget")[i].setAttribute("unselectable", "on");
+                    }
+            } else if(document.getElementById("startButton").innerHTML =="Score"){
+                    document.getElementById("startButton").innerHTML = "Play Again?";
+
+            } else{
+                document.getElementById("startButton").addEventListener("click", location.reload(true));
+            }
+         }
+         //stopwatch function - logic to determine when to increment next value
+        function stopWatch() {
+            seconds++;
+            //logic to determine when to increment next value
+                if (seconds / 60 == 1){
+                    seconds = 0;
+                    minutes++;
+                }
+                if(minutes / 60 == 1){
+                    minutes = 0;
+                    hours++;
+                }
+                
+                if (seconds < 10) {
+                    displaySeconds = "0" + seconds.toString();
+                } else{
+                    displaySeconds = seconds;
+                }
+
+                if (minutes < 10) {
+                    displayMinutes = "0" + minutes.toString();
+                } else{
+                    displayMinutes = minutes;
+                }
+
+                if (hours < 10) {
+                    displayHours = "0" + hours.toString();
+                } else {
+                    displayHours = hours;
+                }
+
+                //display updated time values to user
+                document.getElementById("time").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+                } 
+
+                //Supposed to test whether answer
+        </script>
+    </body>
+</html>
