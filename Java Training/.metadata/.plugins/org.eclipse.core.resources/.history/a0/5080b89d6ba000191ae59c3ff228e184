@@ -1,0 +1,52 @@
+package labels;
+
+public class DiceLabel {
+
+	public static void main(String[] args) {
+		String[][] pairlabel = new String[6][6];
+		pairlabel[0][0] = "Snake Eyes";
+		pairlabel[0][1] = "Australian yo";
+		pairlabel[0][2] = "Little Jo from Komomo";
+		pairlabel[0][3] = "No field five";
+		pairlabel[0][4] = "Easy six";
+		pairlabel[0][5] = "Six one you're done";
+		pairlabel[1][0] = "Ace caught in a deuce";
+		pairlabel[1][1] = "Ballerina";
+		pairlabel[1][2] = "The fever";
+		pairlabel[1][3] = "Jimmie Hicks";
+		pairlabel[1][4] = "Benny Blue";
+		pairlabel[1][5] = "Easy eight";
+		pairlabel[2][0] = "Easy four";
+		pairlabel[2][1] = "OJ";
+		pairlabel[2][2] = "Brooklyn Forest";
+		pairlabel[2][3] = "Big Red";
+		pairlabel[2][4] = "Eighter from Decatur";
+		pairlabel[2][5] = "Nina from Pasadena";
+		pairlabel[3][0] = "Little Phoebe";
+		pairlabel[3][1] = "Easy six";
+		pairlabel[3][2] = "Skinny Mckinney";
+		pairlabel[3][3] = "Square pair";
+		pairlabel[3][4] = "Railroad nine";
+		pairlabel[3][5] = "Big one on the end";
+		pairlabel[4][0] = "Sixie from Dixie";
+		pairlabel[4][1] = "Skinny Dugan";
+		pairlabel[4][2] = "Easy eight";
+		pairlabel[4][3] = "Jesse James";
+		pairlabel[4][4] = "Puppy paws";
+		pairlabel[4][5] = "Yo";
+		pairlabel[5][0] = "The devil";
+		pairlabel[5][1] = "Easy eight";
+		pairlabel[5][2] = "Lou Brown";
+		pairlabel[5][3] = "Tennessee";
+		pairlabel[5][4] = "Six five no jive";
+		pairlabel[5][5] = "Midnight";
+		System.out.println("Dice Combinations Label Matrix");
+		System.out.println("	Die1			Die2		Die3	Die4	Die5	Die6");
+		System.out.println("Die 1	" + pairlabel[0][0]	+ "		" + pairlabel[0][1] + "	" + pairlabel[0][2] + "	Die2	Die3	Die4	Die5	Die6");
+		System.out.println("Die 2	" + pairlabel[1][0] + "   " + pairlabel[1][1] + "	" + pairlabel[1][2] + "Die3	Die4	Die5	Die6");
+		System.out.println("Die 3	" + pairlabel[2][0] + "		" + pairlabel[2][1] + "Die3	Die4	Die5	Die6");
+		System.out.println("Die 4	" + pairlabel[3][0] + "		" + pairlabel[3][1] + "Die2	Die3	Die4	Die5	Die6");
+		System.out.println("Die 5	" + pairlabel[4][0] + "	" + pairlabel[4][1] + "Die2	Die3	Die4	Die5	Die6");
+		System.out.println("Die 6	" + pairlabel[5][0] + "		" + pairlabel[5][1] + "");
+	}
+}

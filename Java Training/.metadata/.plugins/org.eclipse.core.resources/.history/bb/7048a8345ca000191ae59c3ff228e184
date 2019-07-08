@@ -1,0 +1,65 @@
+package dicestats;
+
+import java.util.Scanner; //imports the package needed for input
+
+public class PairStats {
+	
+	/*
+	 * This function will return a random number between the min and max, including min and max.
+	 */
+	public static int dieRoll(int min, int max) {
+		return (int)(Math.random() * ((max - min) + 1)) + min;
+	}
+
+	public static void main(String[] args) {
+		/*
+		 * This line makes a new Scanner object in order for its methods to be used.
+		 */
+		Scanner input = new Scanner(System.in); 
+		System.out.println("Press any key to throw a die. Press Q to quit."); //Scans for next input.
+		String answer = input.nextLine();
+		/*
+		 * If either Q or q is pressed.....
+		 */
+		if(answer.equals("Q") || answer.equals("q")) {
+			System.out.println("Error!");
+			System.exit(0);
+		}
+		/*
+		 * initalises variables
+		 */
+			int min = 1;
+			int max = 6;
+			int x = 0, y = 0, i = 0;
+			int[] tallyArr = new int[21];
+		for (i = 0; i < 1000; i++) {
+			x = dieRoll(min, max); //call to dieRoll function
+			y = dieRoll(min, max); //second call for second die
+			if (x < y) {
+				int tmp = 0;
+				y = tmp;
+				x = y;
+				tmp = x;
+			}
+			if (x == 2 & y == 1) {
+				tallyArr[0]++;
+			} 
+			
+			if(x == 3 & y == 1) {
+				tallyArr[1]++;
+			}
+			
+			if(x == 4 & y == 1) {
+				tallyArr[2]++;
+			}
+			
+			if(x == 5 & y == 1) {
+				tallyArr[3]++;
+			}
+			
+			if(x == 6 & y == 1) {
+				tallyArr[4]++;
+			}
+		}	
+	}
+}

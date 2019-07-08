@@ -1,0 +1,64 @@
+package StringUtility;
+
+public class StringArrayUtility1 {
+	
+	public static boolean arrayHasExactMatch(String array[], String a, boolean b) {
+		int arrlen = array.length;
+		int i = 0;
+		boolean found = false;
+		for (i = 0; i < arrlen; i++) {
+			if (array[i].equals(a) == true) {
+				boolean c = true;
+				if (b != c) {
+					found = false;
+					continue;
+				} else if(b == c) {
+					found = true;
+					continue;
+				}
+			}
+		}
+		return found;
+	}
+	
+	public int[] indexOfOccurenceInArray(String[] array, String a, boolean b) {
+		int arrlen = array.length;
+		int i = 0, j = 0;
+		int foundindexes[] = new int[1];
+		for (i = 0; i < arrlen; i++) {
+			if (array[i].equals(a) == true) {
+					foundindexes[j]++;
+				}
+			}
+		return foundindexes;
+	}
+	public static void main(String[] args) {
+		String myList[] = {"Bozo", "FooBar", "Delta", "Foozball", "Demo", "Money", "Zoo"};
+		String a = "zo";
+		System.out.println("Testing functions. Scenario 1.");
+		boolean result = arrayHasExactMatch(myList, a, false);
+		System.out.println("arrayHasExactMatch(myList, " + a + ", false) is: " + result);
+		a = "zoo";
+		result = arrayHasExactMatch(myList, a, false);
+		System.out.println("Scenario 2.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", false) is: " + result);
+		result = arrayHasExactMatch(myList, a, true);
+		System.out.println("Scenario 3.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+		a = "foo";
+		result = arrayHasExactMatch(myList, a, true);
+		System.out.println("Scenario 4.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+		result = arrayHasExactMatch(myList, a, false);
+		System.out.println("Scenario 5.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", false) is: " + result);
+		a = "delta";
+		result = arrayHasExactMatch (myList, a, true);
+		System.out.println("Scenario 6.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+		a = "Delta";
+		result = arrayHasExactMatch (myList, a, true);
+		System.out.println("Scenario 7.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+	}
+}

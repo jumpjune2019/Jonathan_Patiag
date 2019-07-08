@@ -1,0 +1,113 @@
+package StringUtility;
+
+public class StringArrayUtility1 {
+	
+	/*
+	 * This function will determine if a certain String a can/can't be found
+	 * in a String array[], depending on the boolean b. 
+	 */
+	public static boolean arrayHasExactMatch(String array[], String a, boolean b) {
+		int arrlen = array.length; //determines array length
+		int i = 0;
+		boolean found = true; //initialises return boolean
+		int j = 0;
+		for (i = 0; i < arrlen; i++) {
+			if (array[i].equals(a) == true) {
+				j = i;
+				continue;
+			}
+		}
+		if (array[j].equals(a) == true && b == true) {
+			found = true;
+		} else {
+			return false;
+		}
+		return found;
+	}
+	
+	/*
+	 * This function keeps tab on how many values of String a are matches
+	 * in a String array, or depending on the boolean, how many values do not match the String.
+	 */
+	public static int[] indexOfOccurenceInArray(String array[], String a, boolean b) {
+		int arrlen = array.length;
+		int i = 0, j = 0; //initialise variables
+		int foundindexes[] = new int[1]; //creating a new variable 
+		for (i = 0; i < arrlen; i++) {
+			if (b == false) {
+				if (array[i].equalsIgnoreCase(a) == true) {
+					foundindexes[j]++;
+				}
+			} else {
+				if (array[i].equals(a) == true) {
+					foundindexes[j]++;
+				}
+			}
+		}
+		foundindexes[j]--;
+		return foundindexes;
+	}
+	
+	public static void main(String[] args) {
+		/*
+		 * Initalising all variables
+		 */
+		String myList[] = {"Bozo", "FooBar", "Delta", "Foozball", "Demo", "Money", "Zoo"};
+		String a = "zo";
+		int i = 0;
+		/*
+		 * Beginning testing in these statements.
+		 */
+		System.out.println("Testing functions. Scenario 1.");
+		boolean result = arrayHasExactMatch(myList, a, false);
+		System.out.println("arrayHasExactMatch(myList, " + a + ", false) is: " + result);
+		a = "zoo";
+		result = arrayHasExactMatch(myList, a, false);
+		System.out.println("Scenario 2.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", false) is: " + result);
+		result = arrayHasExactMatch(myList, a, true);
+		System.out.println("Scenario 3.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+		a = "foo";
+		result = arrayHasExactMatch(myList, a, true);
+		System.out.println("Scenario 4.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+		result = arrayHasExactMatch(myList, a, false);
+		System.out.println("Scenario 5.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", false) is: " + result);
+		a = "delta";
+		result = arrayHasExactMatch (myList, a, true);
+		System.out.println("Scenario 6.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+		a = "Delta";
+		result = arrayHasExactMatch (myList, a, true);
+		System.out.println("Scenario 7.");
+		System.out.println("arrayHasExactMatch(myList, " + a + ", true) is: " + result);
+		a = "zo";
+		int score[] = indexOfOccurenceInArray(myList, a, false); 
+		System.out.println("Scenario 8.");
+		System.out.println("indexOfOccurenceInArray(myList, " + a + ", false returns " + score[i]);
+		a = "zoo";
+		score = indexOfOccurenceInArray(myList, a, false); 
+		System.out.println("Scenario 9.");
+		System.out.println("indexOfOccurenceInArray(myList, " + a + ", false returns " + score[i]);
+		score = indexOfOccurenceInArray(myList, a, true);
+		System.out.println("Scenario 10.");
+		System.out.println("indexOfOccurenceInArray(myList, " + a + ", true returns " + score[i]);
+		a = "foo";
+		score = indexOfOccurenceInArray(myList, a, true);
+		System.out.println("Scenario 11.");
+		System.out.println("indexOfOccurenceInArray(myList, " + a + ", true returns " + score[i]);
+		score = indexOfOccurenceInArray(myList, a, false);
+		System.out.println("Scenario 12.");
+		System.out.println("indexOfOccurenceInArray(myList, " + a + ", false returns " + score[i]);
+		a = "delta";
+		score = indexOfOccurenceInArray(myList, a, true);	
+		System.out.println("Scenario 13.");
+		System.out.println("indexOfOccurenceInArray(myList, " + a + ", true returns " + score[i]);
+		a = "Delta";
+		score = indexOfOccurenceInArray(myList, a, true);	
+		System.out.println("Scenario 14.");
+		System.out.println("indexOfOccurenceInArray(myList, " + a + ", true returns " + score[i]);
+	}
+}

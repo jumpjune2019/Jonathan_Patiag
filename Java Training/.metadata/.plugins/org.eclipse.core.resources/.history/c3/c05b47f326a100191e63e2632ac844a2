@@ -1,0 +1,210 @@
+package dicestats;
+
+public class PairStats {
+	
+	/*
+	 * This function will return a random number between the min and max, including min and max.
+	 */
+	public static int dieRoll(int min, int max) {
+		return (int)(Math.random() * ((max - min) + 1)) + min;
+	}
+	
+	public static int[] getindex(int array[], int len) {
+		int i = 0, max = 0;
+		int[] endArr = new int[21];
+		endArr = array;
+		max = endArr[i];
+		for (i = 0; i < len; i++) {
+			int tmp = 0;
+			if(max < endArr[i]) {
+				tmp = max;
+				max = endArr[i];
+				endArr[i] = tmp;
+			}
+		}
+		return endArr;
+	}
+
+	public static void main(String[] args) {
+		/*
+		 * initalises variables
+		 */
+			int min = 1;
+			int max = 6;
+			int x = 0, y = 0, i = 0, z = 0; //x will be the larger of itself and y
+			int[] tallyArr = new int[21];
+			int[] resultArr = new int[21];
+		//loop 1000 times
+		for (i = 0; i < 1000; i++) {
+			x = dieRoll(min, max); //call to dieRoll function
+			y = dieRoll(min, max); //second call for second die
+			
+			//in the case that the x is less than y, swap!
+			if (x < y) {
+				int tmp;
+				tmp = x;
+				x = y;
+				y = tmp;
+			}
+		
+			/*
+			 * The next if statements are based on the combinations of a die roll. 
+			 * Each combo has its specific slot.
+			 */
+			
+			if(x == 1 & y == 1) {
+				tallyArr[0]++;
+			}
+			
+			if (x == 2 & y == 1) {
+				tallyArr[1]++;
+			} 
+			
+			if(x == 3 & y == 1) {
+				tallyArr[2]++;
+			}
+			
+			if(x == 4 & y == 1) {
+				tallyArr[3]++;
+			}
+			
+			if(x == 5 & y == 1) {
+				tallyArr[4]++;
+			}
+			
+			if(x == 6 & y == 1) {
+				tallyArr[5]++;
+			}
+			
+			if(x == 2 & y == 2) {
+				tallyArr[6]++;
+			}
+			
+			if(x == 3 & y == 2) {
+				tallyArr[7]++;
+			}
+			
+			if(x == 4 & y == 2) {
+				tallyArr[8]++;
+			}
+			
+			if(x == 5 & y == 2) {
+				tallyArr[9]++;
+			}
+			
+			if(x == 6 & y == 2) {
+				tallyArr[10]++;
+			}
+			
+			if(x == 3 & y == 3) {
+				tallyArr[11]++;
+			}
+			if(x == 4 & y == 3) {
+				tallyArr[12]++;
+			}
+			
+			if(x == 5 & y == 3) {
+				tallyArr[13]++;
+			}
+			
+			if(x == 6 & y == 3) {
+				tallyArr[14]++;
+			}
+			
+			if(x == 4 & y == 4) {
+				tallyArr[15]++;
+			}
+			
+			if(x == 5 & y == 4) {
+				tallyArr[16]++;
+			}
+			
+			if(x == 6 & y == 4) {
+				tallyArr[17]++;
+			}
+			
+			if(x == 5 & y == 5) {
+				tallyArr[18]++;
+			}
+			
+			if(x == 6 & y == 5) {
+				tallyArr[19]++;
+			}
+			
+			if(x == 6 & y == 6) {
+				tallyArr[20]++;
+			}
+		}
+		System.out.println(tallyArr);
+		//The results of the dice rolls
+		System.out.println("1000 Random 2 Dice Toss Stats");
+		resultArr = getindex(tallyArr, tallyArr.length);
+		int j = 0;
+		for (j = 0; j < resultArr.length; j++) {
+			if(resultArr[j] == tallyArr[0]) {
+				System.out.println("Dice 1 and 1: " + tallyArr[0] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[1]) {
+				System.out.println("Dice 2 and 1: " + tallyArr[1] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[2]) {
+				System.out.println("Dice 3 and 1: " + tallyArr[2] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[3]) {
+				System.out.println("Dice 4 and 1: " + tallyArr[3] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[4]) {
+				System.out.println("Dice 5 and 1: " + tallyArr[4] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[5]) {
+				System.out.println("Dice 6 and 1: " + tallyArr[5] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[6]) {
+				System.out.println("Dice 2 and 2: " + tallyArr[6] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[7]) {
+				System.out.println("Dice 3 and 2: " + tallyArr[7] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[8]) {
+				System.out.println("Dice 4 and 2: " + tallyArr[8] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[9]) {
+				System.out.println("Dice 5 and 2: " + tallyArr[9] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[10]) {
+				System.out.println("Dice 6 and 2: " + tallyArr[10] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[11]) {
+				System.out.println("Dice 3 and 3: " + tallyArr[11] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[12]) {
+				System.out.println("Dice 4 and 3: " + tallyArr[12] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[13]) {
+				System.out.println("Dice 5 and 3: " + tallyArr[13] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[14]) {
+				System.out.println("Dice 6 and 3: " + tallyArr[14] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[15]) {
+				System.out.println("Dice 4 and 4: " + tallyArr[15] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[16]) {
+				System.out.println("Dice 5 and 4: " + tallyArr[16] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[17]) {
+				System.out.println("Dice 6 and 4: " + tallyArr[17] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[18]) {
+				System.out.println("Dice 5 and 5: " + tallyArr[18] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[19]) {
+				System.out.println("Dice 6 and 5: " + tallyArr[19] + " occurrences.");
+			}
+			if(resultArr[j] == tallyArr[20]) {
+				System.out.println("Dice 6 and 6: " + tallyArr[20] + " occurrences.");
+			}
+		}
+		System.out.println(resultArr[0] + resultArr[1] + resultArr[2] + resultArr[3] + resultArr[4] +resultArr[5] + resultArr[6] + resultArr[7] + resultArr[8] + resultArr[9] + resultArr[10] + resultArr[11] +resultArr[12] + resultArr[13] + resultArr[14] + resultArr[15] + resultArr[16] + resultArr[17] + resultArr[18] + resultArr[19] + resultArr[20]);
+	}
+}

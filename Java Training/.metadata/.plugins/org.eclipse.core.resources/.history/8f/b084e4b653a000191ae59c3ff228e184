@@ -1,0 +1,29 @@
+package simpledie;
+
+import java.util.Scanner;
+
+public class SimpleDie {
+	
+	public static int dieRoll(int min, int max) {
+		return (int)(Math.random() * ((max - min) + 1)) + min;
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Peress any key to throw a die. Press Enter/Q to quit.");
+		String answer = input.nextLine();
+		if(answer == "Q" || answer == "" || answer == "q") {
+			System.exit(0);
+		}
+		/*
+		int min = 1;
+		int max = 6;
+		String key = "";
+		System.out.println("Press any key to roll the die.");
+		key = input.next();
+		if(key == "q" || key == "Enter") {
+			System.out.println("Me!");
+		}
+		*/
+	}	
+}

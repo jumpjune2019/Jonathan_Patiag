@@ -1,0 +1,34 @@
+package simpledie;
+
+import java.util.Scanner;
+
+public class SimpleDie {
+	
+	public static int dieRoll(int min, int max) {
+		return (int)(Math.random() * ((max - min) + 1)) + min;
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Press any key to throw a die. Press Q to quit.");
+		String answer = input.nextLine();
+		if(answer == "Q" || answer == "q") {
+			System.out.println("Error!")answer;
+			System.exit(0);
+		}
+		int min = 1;
+		int max = 6;
+		int result = 0;
+		result = dieRoll(min, max);
+		System.out.println("You rolled a " + result);
+		System.out.println("Play again?");
+		answer = input.nextLine();
+		while(answer == "y" || answer == "Y") {
+			result = dieRoll(min, max);
+			System.out.println("You rolled a " + result);
+			System.out.println("Play again?");
+			answer = input.nextLine();
+		}
+		System.out.println("Bye now!");
+	}	
+}
