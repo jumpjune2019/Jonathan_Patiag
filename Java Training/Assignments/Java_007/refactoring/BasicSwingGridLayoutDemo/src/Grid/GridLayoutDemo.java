@@ -79,6 +79,11 @@ public class GridLayoutDemo  implements ActionListener {
    }
    
    public static void main(String[] args){
+	   /*
+	    * the runnnable and run function
+	    * that was here is replaced
+	    * by a lambda function
+	    */
 		LayoutGrid run = () -> {
 				GridLayoutDemo gridLayoutDemo = new GridLayoutDemo();  
 			    gridLayoutDemo.show.function(); //block lambda replaced this function

@@ -5,13 +5,17 @@ import java.util.Scanner;
 import customhandlers.WrongKeyException;
 
 public class MatrixHandler{
-	
+	/*
+	 * Custom exception 1 that tests for invalid keys that are pressed
+	 */
 	public static void testKey(String line) throws WrongKeyException{
 		 if((!line.equals("1")) && (!line.equals("2")) && (!line.equals("3"))) {
 			 throw new WrongKeyException("You have inputted an incorrect key.");
 		 } 
 	}
-	
+	/*
+	 * Custom exception 2 that tests for wrong values
+	 */
 	public static void InvalidValue(int x) throws InvalidValueException{
 		 if(x < 0  || x > 5) {
 			 throw new InvalidValueException("That number is invalid, try another one.");
@@ -33,6 +37,8 @@ public class MatrixHandler{
 		/*
 		 * For the next few lines,
 		 * we insert all labels inside the 2-D array
+		 * I decided to just label them all separately,
+		 * but I might change this when I have time.
 		 */
 		pair[0][0] = "Snake Eyes";
 		pair[0][1] = "Australian yo";
@@ -78,10 +84,11 @@ public class MatrixHandler{
 		try {
 			testKey(answer);
 		}catch(Exception m) {System.out.println("Exception occured: " + m);
-		System.out.println("Pleas4e press 1, 2, or 3: ");
+		System.out.println("Please press 1, 2, or 3: ");
 		answer = input.nextLine();
 		}
-		if(answer.equals("1")) {
+		//prints to the console
+		if(answer.equals("2")) {
 			System.setOut(console);
 			System.out.println("Dice Combinations Label Matrix");
 			System.out.println("");
@@ -92,7 +99,7 @@ public class MatrixHandler{
 			System.out.println("Die 4	" + pair[3][0] + "		" + pair[3][1] + "	" + pair[3][2] + "		" + pair[3][3] + "	" + pair[3][4] + "		" + pair[3][5]);
 			System.out.println("Die 5	" + pair[4][0] + "	" + pair[4][1] + "	" + pair[4][2] + "		" + pair[4][3] + "	" + pair[4][4] + "		" + pair[4][5]);
 			System.out.println("Die 6	" + pair[5][0] + "		" + pair[5][1] + "	" + pair[5][2] + "		" + pair[5][3] + "	" + pair[5][4] + "	" + pair[5][5]);
-		} else if (answer.equals("2")) {
+		} else if (answer.equals("1")) { //prints to file
 			System.setOut(o);
 			System.out.println("Dice Combinations Label Matrix");
 			System.out.println("");
@@ -105,7 +112,7 @@ public class MatrixHandler{
 			System.out.println("Die 6	" + pair[5][0] + "		" + pair[5][1] + "	" + pair[5][2] + "		" + pair[5][3] + "	" + pair[5][4] + "	" + pair[5][5]);
 		}
 		
-		else if (answer.equals("3")) {
+		else if (answer.equals("3")) { //does print to both
 			System.setOut(console);
 			System.out.println("Dice Combinsations Label Matrix");
 			System.out.println("");
@@ -127,6 +134,11 @@ public class MatrixHandler{
 			System.out.println("Die 5	" + pair[4][0] + "	" + pair[4][1] + "	" + pair[4][2] + "		" + pair[4][3] + "	" + pair[4][4] + "		" + pair[4][5]);
 			System.out.println("Die 6	" + pair[5][0] + "		" + pair[5][1] + "	" + pair[5][2] + "		" + pair[5][3] + "	" + pair[5][4] + "	" + pair[5][5]);
 		}
+		/*
+		 * I decided to run another test to test my InvalidValue Exception.
+		 * Here you type 2 integers and if they match a spot on the 2-d array, it will
+		 * name in that spot in the array.
+		 */
 		int a = 0, b = 0;
 		System.out.println("Why don't we run another test? Type 2 integers!");
 		System.out.println("What is the first integer?");

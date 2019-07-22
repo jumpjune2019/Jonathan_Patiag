@@ -9,5 +9,6 @@ class SwingDemo {
 		// Create a new JFrame container.
 		jfrm = new JFrame(title);
 	}
+	//The getter is replaced here with a lambda function.
 	SwingOne swing = () -> jfrm;
 }

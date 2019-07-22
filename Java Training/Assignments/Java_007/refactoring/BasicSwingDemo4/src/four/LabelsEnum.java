@@ -17,7 +17,9 @@ enum LabelsEnum {
 		label = l;
 		position = p;
 	}
-
+	
+	
+	//getter functions replaced with lambda expressions
 	Position getl = () -> label;
 	
 	Position getp = () -> position;

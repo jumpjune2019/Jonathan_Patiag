@@ -22,6 +22,8 @@ public class MatrixPrint{
 		/*
 		 * For the next few lines,
 		 * we insert all labels inside the 2-D array
+		 * I did manually this time, but i may
+		 * change that in the future.
 		 */
 		pair[0][0] = "Snake Eyes";
 		pair[0][1] = "Australian yo";
@@ -67,7 +69,7 @@ public class MatrixPrint{
 		System.out.println("Print to txt file (f), screen(s), or both(b)? Choose! ");
 		String answer = input.nextLine();
 		System.out.println(answer);
-		if(answer.equals("s")) {
+		if(answer.equals("s")) { // to the console
 			System.setOut(console);
 			System.out.println("Dice Combinations Label Matrix");
 			System.out.println("");
@@ -78,7 +80,7 @@ public class MatrixPrint{
 			System.out.println("Die 4	" + pair[3][0] + "		" + pair[3][1] + "	" + pair[3][2] + "		" + pair[3][3] + "	" + pair[3][4] + "		" + pair[3][5]);
 			System.out.println("Die 5	" + pair[4][0] + "	" + pair[4][1] + "	" + pair[4][2] + "		" + pair[4][3] + "	" + pair[4][4] + "		" + pair[4][5]);
 			System.out.println("Die 6	" + pair[5][0] + "		" + pair[5][1] + "	" + pair[5][2] + "		" + pair[5][3] + "	" + pair[5][4] + "	" + pair[5][5]);
-		} else if (answer.equals("f")) {
+		} else if (answer.equals("f")) { //to file
 			System.setOut(o);
 			System.out.println("Dice Combinations Label Matrix");
 			System.out.println("");
@@ -91,7 +93,7 @@ public class MatrixPrint{
 			System.out.println("Die 6	" + pair[5][0] + "		" + pair[5][1] + "	" + pair[5][2] + "		" + pair[5][3] + "	" + pair[5][4] + "	" + pair[5][5]);
 		}
 		
-		else if (answer.equals("b")) {
+		else if (answer.equals("b")) { //prints to both
 			System.setOut(console);
 			System.out.println("Dice Combinsations Label Matrix");
 			System.out.println("");
@@ -113,6 +115,6 @@ public class MatrixPrint{
 			System.out.println("Die 5	" + pair[4][0] + "	" + pair[4][1] + "	" + pair[4][2] + "		" + pair[4][3] + "	" + pair[4][4] + "		" + pair[4][5]);
 			System.out.println("Die 6	" + pair[5][0] + "		" + pair[5][1] + "	" + pair[5][2] + "		" + pair[5][3] + "	" + pair[5][4] + "	" + pair[5][5]);
 		}
-		input.close();
+		input.close(); //close input at end
  	} 
 } 

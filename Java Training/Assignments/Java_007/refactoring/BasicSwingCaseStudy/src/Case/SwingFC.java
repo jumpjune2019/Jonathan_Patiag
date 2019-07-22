@@ -15,6 +15,7 @@ JTextField jtfSecond; // holds the second file name
 JButton jbtnComp; // button to compare the files
 JLabel jlabFirst, jlabSecond; // displays prompts
 JLabel jlabResult; // displays results and error messages
+
 SwingFC() {
 	// Create a new JFrame container.
 	JFrame jfrm = new JFrame("Compare Files");
@@ -83,6 +84,10 @@ public void actionPerformed(ActionEvent ae) {
 
 public static void main(String args[]) {
 // Create the frame on the event dispatching thread.
+	/*
+	 * The two lines here are replaced by a lambda expression.
+	 * This expression is then called.
+	 */
 	Swing run = () -> new SwingFC();
 		run.function();
 	}

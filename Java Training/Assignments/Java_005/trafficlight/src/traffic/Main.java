@@ -7,7 +7,7 @@ public class Main {
 	
 	/*
 	 * Special thanks go to Angela Leighton
-	 * and Elbert Buchanan for helping me with code!
+	 * and Elbert Buchanan for assistance with the code beginnings
 	 */
 	
 	public static void main(String[] args) throws IOException {

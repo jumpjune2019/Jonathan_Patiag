@@ -10,14 +10,17 @@ import java.io.InputStreamReader;
 
 
 public class Match{ 
+	//made 2 separate text files that will be compared
 	private static final String file1 = "file.txt";
 	private static final String file2 = "file2.txt";
     public static void main(String[] args) throws IOException 
     { 	
-  
+    	/*
+    	 * The next following statements all contribute towards
+    	 * reading in lines from the file.
+    	 */
         File filea = new File(file1); 
         File fileb = new File(file2);
-        
         FileInputStream fileStreama = new FileInputStream(filea); 
         FileInputStream fileStreamb = new FileInputStream(fileb);
         InputStreamReader inputa = new InputStreamReader(fileStreama); 
@@ -33,6 +36,10 @@ public class Match{
          
         int lineNum = 1;
          
+        /*
+         * This code determines whether the contents of the 
+         * 2 text files are equal
+         */
         while (line1 != null || line2 != null)
         {
         	characterCount1 += line1.length();
@@ -54,26 +61,35 @@ public class Match{
              
             line2 = reader2.readLine();
              
-            lineNum++;
+            lineNum++; //continue searching if the lines remain equal
         }
+        
+        /*
+         * The results after the while loop above
+         * will be shown here
+         */
         int characterCount = 0;
-        if (characterCount1 == characterCount2 && areEqual == true) {
+        if (characterCount1 == characterCount2 && areEqual == true) { //if both are the same
         	characterCount = characterCount1;
         	System.out.println("identical content");
         	System.out.println("character length for both: " + characterCount);
-        } else if (characterCount1 == characterCount2 && areEqual == false) {
+        } else if (characterCount1 == characterCount2 && areEqual == false) { //if character count's the same, but the characters in text file are different
         	characterCount = characterCount1;
         	System.out.println("different content");
         	System.out.println("character length for both: " + characterCount);
-        } else if (characterCount1 != characterCount2 && areEqual == true) {
+        } else if (characterCount1 != characterCount2 && areEqual == true) { //if character count is different, but the characters are the same
         	System.out.println("identical content");
         	System.out.println("character length for file1.txt " + characterCount1);
         	System.out.println("character length for file2.txt " + characterCount2);
-        } else if (characterCount1 != characterCount2 && areEqual == false) {
+        } else if (characterCount1 != characterCount2 && areEqual == false) { //if neither are the same
         	System.out.println("different content");
         	System.out.println("character length for file1.txt " + characterCount1);
         	System.out.println("character length for file2.txt " + characterCount2);
         }
+        
+        /*
+         * Make sure to close readers afterwards
+         */
         inputa.close();
         inputb.close(); 
         reader1.close();

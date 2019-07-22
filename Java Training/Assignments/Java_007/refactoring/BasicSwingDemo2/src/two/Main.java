@@ -54,7 +54,7 @@ public class Main {
 			public void run() {
 				demo = new SwingDemo("Centered JFrame");
 				frm = demo.get.function(); //the getter has been replaced
-				frm = set.function(frm, JFrame.EXIT_ON_CLOSE, "My label in a centered JFrame"); 
+				frm = set.function(frm, JFrame.EXIT_ON_CLOSE, "My label in a centered JFrame"); //the setter here is also replaced
 				frm.setVisible(true);
 			}
 		});

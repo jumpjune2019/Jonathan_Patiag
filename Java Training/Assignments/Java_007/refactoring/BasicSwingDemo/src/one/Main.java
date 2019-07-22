@@ -26,6 +26,7 @@ public class Main {
 		- GUIs are meant to respond to events and as such asynchronous.
 		*/
 		
+		//this setFrameOnFunction is replaced with a lambda block
 		DemoOne set = (JFrame frm, int width, int height, int onExit, String label) -> {
 			// Give the frame an initial size.		
 			frm.setSize(width, height);
@@ -49,7 +50,7 @@ public class Main {
 			public void run() {
 				demo = new SwingDemo("Demo 1");
 				frm = demo.swing.function(); //replaced the getFrm function in the SwingDemo with a lambda expression
-				frm = set.function(frm, 375, 100, JFrame.EXIT_ON_CLOSE, "My label"); //replaced the function here with a block lambda
+				frm = set.function(frm, 375, 100, JFrame.EXIT_ON_CLOSE, "My label"); //replaced the setter function here with a block lambda
 				frm.setVisible(true);
 			}
 		});

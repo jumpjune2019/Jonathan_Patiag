@@ -9,5 +9,5 @@ class SwingDemo {
 		// Create a new JFrame container.
 		jfrm = new JFrame(title);
 	}
-	SwingTwo get = () -> jfrm; //replaced the get with a lambda expression
+	SwingTwo get = () -> jfrm; //replaced the getter with a lambda expression
 }

@@ -5,8 +5,12 @@ import java.io.*;
 
 public class PhoneBook {
 	
+	 /*
+	  * This function throws the custom exception
+	  * from its class.  
+	  */
 	 public static void testNotEmpty(String line) throws BlankException{
-		 if(line.equals("")) {
+		 if(line.equals("")) { //this is a requirement that tests if the value is empty
 			 throw new BlankException("This is empty!");
 		 } 
 	 }
@@ -14,7 +18,7 @@ public class PhoneBook {
 	 public static void main(String arr[]) throws FileNotFoundException {
 		String[][] phonebook = new String[5][3]; // initialise the 2-d String array
 		
-		// Creating a File object that represents the disk file. 
+		// Creating a File object that represents the disk file.
 	     PrintStream o = new PrintStream(new File("phone.txt")); 
 
 	     // Store current System.out before assigning a new value 
@@ -29,9 +33,9 @@ public class PhoneBook {
 		Scanner input = new Scanner(System.in);
 		for (i = 0; i < 5; i++) {
 			System.out.println("Input your name: ");
-			answer = input.nextLine();
+			answer = input.nextLine(); //inputs prompt into answer
 			/*
-			 * testing the answers with try-catch statements with custom exceptions
+			 * testing the answer with try-catch statements with custom exceptions
 			 */
 			try {
 				testNotEmpty(answer);
@@ -39,6 +43,7 @@ public class PhoneBook {
 				System.out.println("Please enter a name: ");
 				answer = input.nextLine();
 			}
+			//if passes try-catch, put answer in the array
 			phonebook[i][0] = answer;
 			System.out.println("Next, your phone number: ");
 			answer = input.nextLine();
@@ -65,6 +70,10 @@ public class PhoneBook {
 			}
 			phonebook[i][2] = answer;
 			System.out.println("You entered: " + phonebook[i][0] + " " + phonebook[i][1] + " " + phonebook[i][2]);
+			/*
+			 * Added Requirement 2, if the keys entered are not "y" or "Y"
+			 * loop through while loop and input again
+			 */
 			System.out.println("Is this correct? Type y or Y to accept and any other key to reinput.");
 			answer = input.nextLine();
 			while (!answer.equalsIgnoreCase("y")) {
@@ -134,7 +143,6 @@ public class PhoneBook {
 		
 		else if (answer.equals("b")) {
 			System.setOut(console);
-			System.out.println("Phonebook app");
 			System.out.println("Phonebook app");
 			System.out.println("Name	Phone	City");
 			for (a = 0; a < 5; a++) {

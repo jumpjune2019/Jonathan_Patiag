@@ -23,7 +23,7 @@ public class MyLabel {
 	Label set = (String l, String p, JFrame jf) -> {
 		position = p;
 		JLabel lb = new JLabel(l);
-		layout.function(jf, lb);
+		layout.function(jf, lb); //the function here has been replaced with lambda
 		return lb;
 	};
 }

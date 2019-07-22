@@ -8,6 +8,8 @@ public class Main {
 	/*
 	 * Replaced some of the functions with lambda blocks
 	 */
+	
+	//this function sets the frame size
 	static Center size = (JFrame frm, int width, int height) -> {
 		// set the size of the frame to half in width and height
 		frm.setSize(width/2, height/2);
@@ -45,8 +47,8 @@ public class Main {
 			
 			public void run() {
 				demo = new SwingDemo("Centered JFrame 400 by 200 with 5 labels");
-				frm = demo.get.function(); //lambda block replace this function
-				frm = set.function(frm, JFrame.EXIT_ON_CLOSE, 400, 200);
+				frm = demo.get.function(); //lambda block replaces this function
+				frm = set.function(frm, JFrame.EXIT_ON_CLOSE, 400, 200); //lambda block replaces this function
 				frm.setVisible(true);
 			}
 		});

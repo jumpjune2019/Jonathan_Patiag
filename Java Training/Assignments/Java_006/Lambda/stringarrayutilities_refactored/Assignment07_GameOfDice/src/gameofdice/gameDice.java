@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class gameDice {
 	
-	/*
-	 * This function rolls a random number between the minimum number and the maximum number.
-	 * This also includes the min and max values themselves.
-	 */
 	public static int dieRoll(int min, int max) {
 		return (int)(Math.random() * ((max - min) + 1)) + min;
 	}
@@ -125,7 +121,7 @@ public class gameDice {
 			System.out.println("Play again?");
 			answer = input.nextLine(); 
 		}
-		input.close(); //closing the input
+		input.close();
 		System.out.println("Thanks for playing! See you later!");
 	}
 }

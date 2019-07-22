@@ -10,5 +10,5 @@ class SwingDemo {
 		jfrm = new JFrame(title);
 		jfrm.setLayout(new BoxLayout(jfrm.getContentPane(), BoxLayout.Y_AXIS));
 	}
-	Swing get = () -> jfrm;
+	Swing get = () -> jfrm; //getter is a lambda expression
 }

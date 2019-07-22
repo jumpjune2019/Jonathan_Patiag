@@ -3,6 +3,10 @@ package app;
 //import the class from the package
 import static arrayutils.StringArrayUtility2.*;
 
+/*
+ * This class will demonstrate the same abilities as Assignment08, 
+ * but the functions that do the work will be in another package.
+ */
 public class ArrUtil {
 	public static void main(String[] args) {
 		String myList[] = {"Bozo", "FooBar", "Delta", "Foozball", "Demo", "Money", "Zoo"};
