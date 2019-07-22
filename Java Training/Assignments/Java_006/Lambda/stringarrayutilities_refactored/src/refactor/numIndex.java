@@ -1,5 +1,5 @@
 package refactor;
 
 public interface numIndex {
-	int[] numIndex(String[] list, String a, boolean caseWord);
+	int[] function(String[] list, String a, boolean caseWord);
 }

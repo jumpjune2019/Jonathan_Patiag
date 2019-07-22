@@ -1,5 +1,5 @@
 package refactor;
 
 public interface indexMatch {
-	boolean indexMatch(String[] list, String a, boolean caseWord);
+	boolean function(String[] list, String a, boolean caseWord);
 }

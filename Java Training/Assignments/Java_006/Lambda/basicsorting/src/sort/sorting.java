@@ -10,9 +10,16 @@ public class sorting {
 		
 	
 		   public static void main(String[] args){
+			   /*
+			    * Initialize the arrays
+			    */
 		       Integer[] numArr = { 10, 3, 4, 15, 7, 9, 1, 21 };
 		       String[] strArr = { "claude", "Phil", "lois", "clark", "Arthur", "Mera", "bruce" };
-
+		       	   
+		       /*
+		        * The next 2 lambda blocks determine whether the
+		        * function will be in ascending or descending order. 
+		        */
 		           Sorter<Integer> intArray=(a,s,c)->{
 		               Integer[] Array = a;
 		               if(s.equals("ASC")){
@@ -22,23 +29,24 @@ public class sorting {
 		               return Array;
 		           };
 		           
+		           
 		           Sorter<String> stringArray= (a, s,c) -> {
 		        	   Boolean caseSens = c;
 		        	   String[] Array = a;
 		        	   
 		        	   
-		        	   if(s.equals("DESC")&& caseSens==true) {
+		        	   if(s.equals("DESC")&& caseSens==true) {//this if sorts the array in a descending order and array is case sensitive
 		        		   
 		        		   Arrays.sort(Array,String.CASE_INSENSITIVE_ORDER);
 		        		   Collections.reverse(Arrays.asList(Array));
 		        		   
-		        	   }else if(s.equals("ASC") && caseSens==true) {
+		        	   }else if(s.equals("ASC") && caseSens==true) {//this if sorts the array in an ascending order and array is case sensitive
 		        		   
 		        		   Arrays.sort(Array, String.CASE_INSENSITIVE_ORDER);
-		        	   }else if(s.equals("DESC")) {
+		        	   }else if(s.equals("DESC")) {//this if sorts the array in reverse to signale descending
 		        		   
 		        		   Arrays.sort(Array,Collections.reverseOrder());
-		        	   }else if(s.equals("ASC")) {
+		        	   }else if(s.equals("ASC")) {//this if sorts the ascending array normally
 		        		   
 		        		   Arrays.sort(Array);
 		        	   }

@@ -67,7 +67,10 @@ public class GameDice {
 		pair[5][3] = "Tennessee";
 		pair[5][4] = "Six five no jive";
 		pair[5][5] = "Midnight";
+		//the random function in previous assignments is changed to a lambda expression
 		GameInterface dieRoll = (a, b) -> (int)(Math.random()* ((b-1) + a)) + a;
+		//this function tests the outcome of the two sums of the dice rolls of the player and the computer
+		//only tests for >, <, and ==. Testing for doubles take place outside of the function
 		CheckInterface check = (a, b) -> {
 			if (a > b) {
 				System.out.println("You win!!!");
@@ -77,6 +80,9 @@ public class GameDice {
 				System.out.println("We tied, it seems.");
 			}
 		};
+		/*
+		 * Calls the lambda expression 4 times.
+		 */
  		xplay = dieRoll.function(1, 6);
 		yplay = dieRoll.function(1, 6);
 		xcomp = dieRoll.function(1, 6);
@@ -113,13 +119,13 @@ public class GameDice {
 			}
 			if((xcomp == ycomp) && (xplay != yplay) && sumplay == sumcomp) {
 				System.out.println("I Win by a double! TOO BAD!!!");
-			} else {
+			} else { //after the doubles have been checked, the lambad block is called
 				check.function(sumplay, sumcomp);
 			}
 			System.out.println("Play again?");
 			answer = input.nextLine(); 
 		}
-		input.close();
+		input.close(); 
 		System.out.println("Thanks for playing! See you later!");
 	}
 }
